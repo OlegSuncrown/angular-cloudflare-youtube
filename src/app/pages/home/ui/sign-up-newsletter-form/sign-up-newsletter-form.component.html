@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-4">
+    <label class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress"> Signup for our newsletter </label>
+    <input
+      class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+      id="emailaddress"
+      type="text"
+      placeholder="you@somewhere.com"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="flex items-center justify-between pt-4">
+    <button
+      class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out disabled:pointer-events-none disabled:bg-gradient-to-r disabled:from-slate-500 disabled:to-slate-400"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Sign Up
+    </button>
+  </div>
+</form>
