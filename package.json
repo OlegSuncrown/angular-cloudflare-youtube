@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev": "npx wrangler pages dev -- ng s"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "@angular-devkit/build-angular": "^14.1.1",
     "@angular/cli": "~14.1.1",
     "@angular/compiler-cli": "^14.1.0",
+    "@cloudflare/workers-types": "^3.14.1",
     "@types/jasmine": "~4.0.0",
     "autoprefixer": "^10.4.8",
     "jasmine-core": "~4.2.0",

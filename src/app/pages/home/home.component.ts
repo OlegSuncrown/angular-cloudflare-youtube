@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AirTableApiService } from 'src/app/shared/data-access';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private airTableApiService: AirTableApiService) { }
 
   ngOnInit(): void {
   }
 
   onSignupNewsLetter(email: string) {
-    console.log('email', email)
+    this.airTableApiService.addEmail(email).subscribe(console.log)
   }
 }
