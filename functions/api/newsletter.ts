@@ -24,14 +24,23 @@ export async function onRequestPost(context: any) {
       body: JSON.stringify(body),
     });
 
-    const response = await airTableResponse.json();
+    const response: any = await airTableResponse.json();
+
+    if (response?.error) {
+      throw new Error(response?.error?.message);
+    }
     const payload = JSON.stringify(response, null, 2);
 
     return new Response(payload, {
       status: 200,
     });
-  } catch {
-    return new Response('Some error', {
+  } catch (error) {
+    if (error instanceof Error) {
+      return new Response(error.message, {
+        status: 400,
+      });
+    }
+    return new Response('Unknown Error', {
       status: 500,
     });
   }
