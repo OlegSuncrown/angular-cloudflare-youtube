@@ -1,0 +1,13 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("")
+}
+
+model Newsletter {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique
+}
