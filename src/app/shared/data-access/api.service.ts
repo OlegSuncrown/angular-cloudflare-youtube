@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class AirTableApiService {
+export class ApiService {
   constructor(private http: HttpClient) {}
 
   addEmail(email: string) {
@@ -18,6 +18,16 @@ export class AirTableApiService {
           },
         },
       ],
+    };
+
+    return this.http.post(newUrl, payload);
+  }
+
+  addEmailMongo(email: string) {
+    const newUrl = '/api/mongo-newsletter';
+
+    const payload = {
+      email,
     };
 
     return this.http.post(newUrl, payload);

@@ -1,1 +1,1 @@
-export * from './air-table-api.service';
+export * from './api.service';
